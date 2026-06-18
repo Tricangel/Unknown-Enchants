@@ -3,13 +3,16 @@
   "package": "bee.unknownenchants.mixin",
   "compatibilityLevel": "JAVA_25",
   "mixins": [
-    "ExampleMixin",
-    "ItemMixin"
+    "EnchantmentDescriptionsClientEventMixin",
+    "InventoryMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "overwrites": {
     "requireAnnotations": true
-	}
+  },
+  "client": [
+    "AbstractContainerScreenMixin"
+  ]
 }
