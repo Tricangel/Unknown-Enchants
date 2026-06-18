@@ -2,14 +2,14 @@
 	"schemaVersion": 1,
 	"id": "unknown-enchants",
 	"version": "${version}",
-	"name": "Bee",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "Unknown Enchants",
+	"description": "Obfuscates undiscovered enchants",
 	"authors": [
-		"Me!"
+		"Bee :3"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/Tricangel/Unknown-Enchants",
+		"issues": "https://github.com/Tricangel/Unknown-Enchants/issues"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/unknown-enchants/icon.png",
@@ -17,9 +17,6 @@
 	"entrypoints": {
 		"main": [
 			"bee.unknownenchants.UnknownEnchants"
-		],
-		"fabric-datagen": [
-			"bee.unknownenchants.UnknownEnchantsDataGenerator"
 		],
 		"cardinal-components-entity": [
 			"bee.unknownenchants.registry.ModEntityComponents"

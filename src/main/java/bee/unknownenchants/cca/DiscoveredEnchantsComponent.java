@@ -26,9 +26,8 @@ public class DiscoveredEnchantsComponent implements CardinalComponent {
 
     @Override
     public void readData(ValueInput valueInput) {
-        if (valueInput.read("enchantments", Enchantment.CODEC.listOf()).isPresent()) {
-            enchantments = valueInput.read("enchantments", Enchantment.CODEC.listOf()).get();
-        }
+        valueInput.read("enchantments", Enchantment.CODEC.listOf())
+                .ifPresent(holders -> enchantments = holders);
     }
 
     @Override
