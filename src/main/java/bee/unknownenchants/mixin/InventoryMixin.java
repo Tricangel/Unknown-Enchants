@@ -23,7 +23,6 @@ public abstract class InventoryMixin {
         @Inject(at = @At("HEAD"), method = "add(ILnet/minecraft/world/item/ItemStack;)Z")
         private void init(int slot, ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
 
-            if (UnknownEnchantsConfig.discoveryMode.equals(EnchantDiscoveryMode.ENCHANTED_ITEM)) UnknownEnchants.discoverEnchants(stack);
 
         }
 

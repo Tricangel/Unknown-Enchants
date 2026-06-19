@@ -30,7 +30,7 @@ public abstract class AbstractContainerScreenMixin {
         @Inject(at = @At("HEAD"), method = "tick")
         private void init(CallbackInfo ci) {
 
-            if (UnknownEnchantsConfig.discoveryMode.equals(EnchantDiscoveryMode.ENCHANTED_ITEM) && hoveredSlot != null) UnknownEnchants.discoverEnchants(hoveredSlot.getItem());
+            //if ( UnknownEnchantsConfig.discoveryMode.equals(EnchantDiscoveryMode.ENCHANTED_ITEM) && hoveredSlot != null) UnknownEnchants.discoverEnchants(hoveredSlot.getItem());
 
         }
 

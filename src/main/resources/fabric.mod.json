@@ -20,6 +20,9 @@
 		],
 		"cardinal-components-entity": [
 			"bee.unknownenchants.registry.ModEntityComponents"
+		],
+		"client": [
+			"bee.unknownenchants.UnknownEnchantsClient"
 		]
 	},
 	"custom": {

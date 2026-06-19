@@ -14,10 +14,10 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 
 public class DiscoverEnchantToast implements Toast {
-    private final Holder<Enchantment> enchantment;
-    private Visibility visibility = Visibility.HIDE;
-    public DiscoverEnchantToast(Holder<Enchantment> enchantment) {
-        this.enchantment = enchantment;
+    private final String enchantmentName;
+    private Visibility visibility;
+    public DiscoverEnchantToast(String enchantmentName) {
+        this.enchantmentName = enchantmentName;
         this.visibility = Visibility.SHOW;
     }
 
@@ -36,7 +36,7 @@ public class DiscoverEnchantToast implements Toast {
         int alpha = Math.max( 5000 - Math.toIntExact(fullyVisibleForMs), 255);
         graphics.blitSprite(RenderPipelines.GUI_TEXTURED, Identifier.withDefaultNamespace("toast/advancement"), 0, 0, this.width(), this.height());
 
-        Component component = Component.translatable("enchantment." + enchantment.getRegisteredName().replace("/", ".").replace(":", "."));
+        Component component = Component.translatable(enchantmentName);
         graphics.text(font, "Enchantment Discovered!", 30, 7, DyeColor.MAGENTA.getTextColor(), false);
         graphics.text(font, component, 30, 18, ARGB.white(255), false);
         graphics.fakeItem(Items.ENCHANTED_BOOK.getDefaultInstance(), 8, 8);
