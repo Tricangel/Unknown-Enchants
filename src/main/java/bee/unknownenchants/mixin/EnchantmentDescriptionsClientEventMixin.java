@@ -1,5 +1,7 @@
 	package bee.unknownenchants.mixin;
 
+import bee.unknownenchants.config.EnchantDiscoveryMode;
+import bee.unknownenchants.config.UnknownEnchantsConfig;
 import bee.unknownenchants.registry.ModEntityComponents;
 import moriyashiine.enchancement.client.event.config.EnchantmentDescriptionsClientEvent;
 import moriyashiine.enchancement.common.util.EnchancementUtil;
@@ -26,7 +28,7 @@ public class EnchantmentDescriptionsClientEventMixin {
 	@Inject(at = @At("RETURN"), method = "getDescription", cancellable = true)
 	private static void init(Component component, Holder<Enchantment> enchantment, CallbackInfoReturnable<List<Component>> cir) {
 
-		if (Minecraft.getInstance().player != null) {
+		if (!UnknownEnchantsConfig.discoveryMode.equals(EnchantDiscoveryMode.NONE) && Minecraft.getInstance().player != null) {
 			LocalPlayer player = Minecraft.getInstance().player;
 
 			if (!ModEntityComponents.DISCOVERED_ENCHANTS.get(player).hasEnchantment(enchantment)) {
