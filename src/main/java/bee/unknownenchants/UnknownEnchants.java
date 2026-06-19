@@ -28,8 +28,8 @@ public class UnknownEnchants implements ModInitializer {
 	}
 
 	public static boolean discoverEnchants(ItemStack stack) {
+		boolean newEnchant = false;
 		if (Minecraft.getInstance().player != null) {
-			boolean newEnchant = false;
 			LocalPlayer player = Minecraft.getInstance().player;
 			if (stack.has(DataComponents.ENCHANTMENTS) && UnknownEnchantsConfig.discoveryMode.equals(EnchantDiscoveryMode.ENCHANTED_ITEM)) {
 				ItemEnchantments enchantments = stack.get(DataComponents.ENCHANTMENTS);
@@ -41,7 +41,8 @@ public class UnknownEnchants implements ModInitializer {
 						newEnchant = true;
 					}
 				}
-			} else if (stack.has(DataComponents.STORED_ENCHANTMENTS)) {
+			}
+			if (stack.has(DataComponents.STORED_ENCHANTMENTS)) {
 				ItemEnchantments enchantments = stack.get(DataComponents.STORED_ENCHANTMENTS);
 
 				for (Holder<Enchantment> enchantment : enchantments.keySet()) {
@@ -52,11 +53,8 @@ public class UnknownEnchants implements ModInitializer {
 					}
 				}
 			}
-
-            return newEnchant;
-
 		}
-		return false;
+		return newEnchant;
 	}
 
 	public static Identifier id(String name) {

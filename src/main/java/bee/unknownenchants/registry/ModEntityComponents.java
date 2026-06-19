@@ -17,7 +17,7 @@ public class ModEntityComponents implements EntityComponentInitializer {
     @Override
     public void registerEntityComponentFactories(EntityComponentFactoryRegistry entityComponentFactoryRegistry) {
 
-        entityComponentFactoryRegistry.registerForPlayers(DISCOVERED_ENCHANTS, _ -> new DiscoveredEnchantsComponent(), RespawnCopyStrategy.ALWAYS_COPY);
+        entityComponentFactoryRegistry.registerForPlayers(DISCOVERED_ENCHANTS, DiscoveredEnchantsComponent::new, RespawnCopyStrategy.ALWAYS_COPY);
 
     }
 }
