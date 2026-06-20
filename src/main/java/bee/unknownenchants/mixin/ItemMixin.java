@@ -27,11 +27,12 @@ public abstract class ItemMixin {
 
         @Inject(at = @At("HEAD"), method = "use", cancellable = true)
         private void init(Level level, Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResult> cir) {
-
+            boolean bl = false;
             if (!level.isClientSide() && UnknownEnchantsConfig.discoveryMode.equals(EnchantDiscoveryMode.ENCHANTED_BOOK) && player.getItemInHand(hand).is(Items.ENCHANTED_BOOK)) {
-                if (UnknownEnchants.discoverEnchants(player.getItemInHand(hand), player))
-                    cir.setReturnValue(InteractionResult.SUCCESS);
+                bl = UnknownEnchants.discoverEnchants(player.getItemInHand(hand), player);
             }
+
+            if (bl) cir.setReturnValue(InteractionResult.SUCCESS);
 
         }
 
